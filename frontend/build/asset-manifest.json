@@ -1,0 +1,31 @@
+{
+  "files": {
+    "main.css": "/static/css/main.aaccc6fb.css",
+    "main.js": "/static/js/main.0f713e57.js",
+    "static/media/Inter-Medium.woff?v=3.19": "/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
+    "static/media/Inter-Black.woff?v=3.19": "/static/media/Inter-Black.c6938660eec019fefd68.woff",
+    "static/media/Inter-Regular.woff?v=3.19": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
+    "static/media/Inter-Medium.woff2?v=3.19": "/static/media/Inter-Medium.293fd13dbca5a3e450ef.woff2",
+    "static/media/Inter-Black.woff2?v=3.19": "/static/media/Inter-Black.15ca31c0a2a68f76d2d1.woff2",
+    "static/media/Inter-Regular.woff2?v=3.19": "/static/media/Inter-Regular.c8ba52b05a9ef10f4758.woff2",
+    "static/media/logo_mob.svg": "/static/media/logo_mob.abb64ac93f95638a2598.svg",
+    "static/media/logo.svg": "/static/media/logo.03b78ada3425e9132ff3.svg",
+    "static/media/heart.svg": "/static/media/heart.87ed371465c7a6a1cd01.svg",
+    "static/media/Trash.svg": "/static/media/Trash.823b0cf1b0b7e9cb7cad.svg",
+    "static/media/heart_active.svg": "/static/media/heart_active.fe17a515669479b1e649.svg",
+    "index.html": "/index.html",
+    "static/media/Edit_Button_mob.svg": "/static/media/Edit_Button_mob.2f7be95ab48bbff7d88c.svg",
+    "static/media/Add_Button_mob.svg": "/static/media/Add_Button_mob.6f86ece55e54220c5485.svg",
+    "static/media/Add_Button.svg": "/static/media/Add_Button.6f41966c71dd7895857f.svg",
+    "static/media/Edit_Button.svg": "/static/media/Edit_Button.a1892ea72cb87c8fc3aa.svg",
+    "static/media/Eddit.svg": "/static/media/Eddit.a086f758840ae814ecde.svg",
+    "static/media/Close_Icon.svg": "/static/media/Close_Icon.2ceb783afbab75916ddc.svg",
+    "static/media/Close_Icon_mob.svg": "/static/media/Close_Icon_mob.b793e07c3f4c19e26c11.svg",
+    "main.aaccc6fb.css.map": "/static/css/main.aaccc6fb.css.map",
+    "main.0f713e57.js.map": "/static/js/main.0f713e57.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.aaccc6fb.css",
+    "static/js/main.0f713e57.js"
+  ]
+}

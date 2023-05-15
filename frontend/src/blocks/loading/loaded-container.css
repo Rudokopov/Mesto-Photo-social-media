@@ -1,0 +1,28 @@
+.loaded-wrapper {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  max-width: 1280px;
+  min-width: 320px;
+  margin: 0 auto;
+}
+
+.loaded-container {
+  background: rgba(255, 255, 255, 0.192);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  border: 1px solid rgba(43, 43, 43, 0.568);
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 7;
+}
+
+.loaded-image {
+  max-width: 300px;
+  max-height: 300px;
+  background-color: initial;
+}

@@ -1,0 +1,11 @@
+.authorization__submit-button {
+  all: unset;
+  text-align: center;
+  cursor: pointer;
+  padding: 14px 0;
+  background-color: #fff;
+  color: #000;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+}

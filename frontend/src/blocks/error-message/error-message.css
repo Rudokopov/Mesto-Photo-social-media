@@ -1,0 +1,14 @@
+.error-message {
+  max-width: 358px;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14.52px;
+  min-height: 30px;
+  color: rgba(255, 0, 0, 1);
+}
+
+@media screen and (max-width: 580px) {
+  .error-message {
+    max-width: 230px;
+  }
+}

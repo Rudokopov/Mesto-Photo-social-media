@@ -1,0 +1,14 @@
+.popup-image {
+  display: flex;
+  visibility: hidden;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  max-width: 1280px;
+  min-height: 100%;
+  animation: popup 1s ease;
+}

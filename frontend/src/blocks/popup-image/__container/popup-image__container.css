@@ -1,0 +1,15 @@
+.popup-image__container {
+  position: relative;
+}
+
+.popup__form-image-close-button {
+  top: -40px;
+  right: -37px;
+}
+
+@media screen and (max-width: 580px) {
+  .popup__form-image-close-button {
+    top: -35px;
+    right: 0;
+  }
+}

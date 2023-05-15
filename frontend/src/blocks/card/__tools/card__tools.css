@@ -1,0 +1,4 @@
+.card__tools {
+    display: flex;
+    flex-direction: column;
+}

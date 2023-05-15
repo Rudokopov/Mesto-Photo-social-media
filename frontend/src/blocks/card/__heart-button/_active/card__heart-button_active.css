@@ -1,0 +1,9 @@
+.card__heart-button_active {
+  opacity: 1;
+  background-image: url(../../../../images/Icons/heart_active.svg);
+  cursor: pointer;
+}
+
+.card__heart-button_active:hover {
+  opacity: 1;
+}

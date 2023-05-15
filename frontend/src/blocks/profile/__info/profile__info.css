@@ -1,0 +1,13 @@
+.profile__info {
+  grid-area: profile__info;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  grid-template-areas: "profile__user-name profile__edit-button" "profile__user-description profile__user-description";
+}
+
+@media screen and (max-width: 630px) {
+  .profile__info {
+    justify-items: center;
+  }
+}

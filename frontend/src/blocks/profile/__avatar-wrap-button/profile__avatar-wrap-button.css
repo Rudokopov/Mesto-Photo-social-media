@@ -1,0 +1,10 @@
+.profile__avatar-wrap-button {
+    all: unset;
+    visibility: hidden;
+    width: 26px;
+    height: 26px;
+    background-image: url(../../../images/Icons/Eddit.svg);
+    position: absolute;
+    top: 40%;
+    right: 40%;
+  }

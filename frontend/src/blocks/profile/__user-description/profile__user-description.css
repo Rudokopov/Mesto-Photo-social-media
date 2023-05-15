@@ -1,0 +1,23 @@
+.profile__user-description {
+  max-width: 550px;
+  margin: 0;
+  padding: 0;
+  align-self: flex-start;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21.78px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  grid-area: profile__user-description;
+}
+
+@media screen and (max-width: 630px) {
+  .profile__user-description {
+    max-width: 250px;
+    margin-top: 14px;
+    margin-bottom: 36px;
+    font-size: 14px;
+    line-height: 16.94px;
+  }
+}

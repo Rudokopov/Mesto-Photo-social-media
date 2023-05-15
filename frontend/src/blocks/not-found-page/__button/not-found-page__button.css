@@ -1,0 +1,11 @@
+.not-found-page__button {
+  all: unset;
+  cursor: pointer;
+  border: 2px solid #fff;
+  padding: 10px 50px;
+  transition: opacity .3s ease;
+}
+
+.not-found-page__button:hover {
+  opacity: .3;
+}
