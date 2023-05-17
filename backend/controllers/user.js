@@ -118,7 +118,7 @@ const updateProfile = async (req, res, next, data) => {
     const id = req.userId
     const { name, about, avatar } = req.body
     const result = await User.updateOne(
-      id,
+      { _id: id },
       { name, about, avatar },
       { new: true, runValidators: true }
     )
@@ -137,13 +137,13 @@ const updateProfile = async (req, res, next, data) => {
 }
 
 const updateUser = (req, res, next) => {
-  const data = req.body
-  return updateProfile.call(data, req, res, next)
+  const { name, about } = req.body
+  return updateProfile(req, res, next, { name, about })
 }
 
 const updateAvatar = (req, res, next) => {
-  const data = req.body
-  return updateProfile.call(data, req, res, next)
+  const { avatar } = req.body
+  return updateProfile(req, res, next, { avatar })
 }
 
 export {
