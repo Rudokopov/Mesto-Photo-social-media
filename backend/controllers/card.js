@@ -20,9 +20,6 @@ const createCard = async (req, res, next) => {
     const id = req.userId
     const { name, link } = req.body
     const card = await Card.create({ name, link, owner: id })
-    if (!card) {
-      throw new NotFound("Ошибка при создании карточки")
-    }
     const populatedCard = await card.populate("owner")
     res.send(populatedCard)
   } catch (err) {
@@ -45,7 +42,7 @@ const deleteCard = async (req, res, next) => {
     if (card.owner.id !== userId) {
       throw new AccessError("У вас нет на это прав")
     }
-    await Card.deleteOne(card)
+    await Card.deleteOne({ _id: id })
     res.send(card)
   } catch (err) {
     next(err)

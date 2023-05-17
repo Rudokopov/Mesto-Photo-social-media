@@ -33,7 +33,7 @@ import {
   validateCardId,
   validateProfile,
   validateAvatar,
-} from "../middlewares/handleErrors.js"
+} from "../middlewares/validate.js"
 
 // Роуты для карточек
 router.get("/cards", checkAuth, getCards)

@@ -9,15 +9,6 @@ import {
   ReferenceError,
 } from "../customErrors/customErrors.js"
 
-const searchUser = async (req) => {
-  const id = req.userId
-  const result = await User.findById(id)
-  if (!result) {
-    return false
-  }
-  return result
-}
-
 const getUser = async (req, res, next) => {
   try {
     const response = await User.find({})
@@ -94,12 +85,10 @@ const login = async (req, res, next) => {
     }
     const isValid = await bcrypt.compare(password, user._doc.passwordHash)
     if (!isValid) {
-      throw new AccessError("Неправильные почта или пароль")
+      throw new ValidationError("Неправильные почта или пароль")
     }
     const { NODE_ENV, JWT_SECRET } = process.env
-    if (NODE_ENV !== "production") {
-      const NODE_ENV = "production"
-    }
+
     const token = jwt.sign(
       {
         _id: user._id,
@@ -116,7 +105,7 @@ const login = async (req, res, next) => {
       token,
     })
   } catch (err) {
-    if (err instanceof mongoose.Error.CastError) {
+    if (err instanceof mongoose.Error.ValidationError) {
       next(new BadRequestError("Переданы некорректные данные"))
       return
     }
@@ -124,27 +113,19 @@ const login = async (req, res, next) => {
   }
 }
 
-// Не понимаю куда и для чего этот аппендекс в виде data нужен, типа в контроллере понятно, как контекст для остальных аргументов
-// А тут куда ее вставлять? Пробовал распарсить {name, about, avatar} = data, но у меня прилетает undefined, только с req могу
-// С кешем совсем запутался, мне же тут не надо кешировать запрос, верно?
-
-// И по поводу объеденения логики поиска юзера в отдельной функции, пришлось усложнить конструкцию этой функции
-// Поскольку после обновления данных, приходится искать снова юзера и уже после этого выводить обновленные данные
-// Но возможно это я криво реализовал и можно было все сделать проще, очень жду вашего фидбека :)
 const updateProfile = async (req, res, next, data) => {
   try {
+    const id = req.userId
     const { name, about, avatar } = req.body
-    const user = await searchUser(req)
-    if (!user) {
-      next(new NotFound("Пользователь с похожим ID не найден"))
-      return
-    }
-    await User.updateOne(
-      user,
+    const result = await User.updateOne(
+      id,
       { name, about, avatar },
       { new: true, runValidators: true }
     )
-    const result = await searchUser(req)
+    if (!result) {
+      next(new NotFound("Пользователь с похожим ID не найден"))
+      return
+    }
     res.send(result)
   } catch (err) {
     if (err instanceof mongoose.Error.ValidationError) {
