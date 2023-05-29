@@ -46,11 +46,7 @@ router.delete("/cards/:id/likes", checkAuth, validateCardId, dislakeCard)
 router.get("/users/me", checkAuth, getUserMe)
 router.get("/users", checkAuth, getUser)
 router.get("/users/:id", checkAuth, validateId, getUserById)
-router.get("/crash-test", () => {
-  setTimeout(() => {
-    throw new Error("Сервер сейчас упадёт")
-  }, 0)
-})
+
 router.post("/signup", validateRegister, createUser)
 router.post("/signin", validateLogin, login)
 router.patch("/users/me", checkAuth, validateProfile, updateUser)

@@ -37,7 +37,8 @@ const getUserById = async (req, res, next) => {
 
 const getUserMe = async (req, res, next) => {
   try {
-    const response = await searchUser(req)
+    const { id } = req.params
+    const response = await User.findById(id)
     if (!response) {
       throw new NotFound("Пользователь с похожим id не найден")
     }
