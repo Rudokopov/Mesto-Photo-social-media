@@ -20,7 +20,8 @@ const getUser = async (req, res, next) => {
 
 const getUserById = async (req, res, next) => {
   try {
-    const { id } = req.params
+    const id = req.userId
+    // const { id } = req.params
     const response = await User.findById(id)
     if (!response) {
       throw new NotFound("Пользователь с похожим id не найден")
@@ -37,7 +38,8 @@ const getUserById = async (req, res, next) => {
 
 const getUserMe = async (req, res, next) => {
   try {
-    const { id } = req.params
+    const id = req.userId
+    // const { id } = req.params
     const response = await User.findById(id)
     if (!response) {
       throw new NotFound("Пользователь с похожим id не найден")
