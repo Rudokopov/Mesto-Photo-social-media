@@ -2,10 +2,9 @@
 const allowedCors = [
   "http://mesto-rudokopov.nomoredomains.monster",
   "https://mesto-rudokopov.nomoredomains.monster",
+  "https://mesto-rouge.vercel.app/",
   "http://localhost:3000",
-  "localhost:3000",
   "http://localhost:3002",
-  "localhost:3002",
 ]
 const DEFAULT_ALLOWED_METHODS = "GET,HEAD,PUT,PATCH,POST,DELETE"
 export const corsOptions = {
