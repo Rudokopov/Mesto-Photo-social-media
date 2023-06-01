@@ -95,7 +95,7 @@ class Api {
 
 const api = new Api({
   jwt: localStorage.getItem("jwt"),
-  url: "https://api.mesto-rudokopov.nomoredomains.monster",
+  url: "https://mesto-yandex.onrender.com",
   headers: {
     authorization: localStorage.getItem("jwt"),
     "Content-Type": "application/json",
