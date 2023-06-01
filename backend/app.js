@@ -6,7 +6,7 @@ import { router } from "./routes/index.js"
 import celebrate from "celebrate"
 import { handleErrors } from "./middlewares/validate.js"
 import { corsOptions } from "./middlewares/corsOptions.js"
-import { PORT, DATA_BASE } from "./config.js"
+import { PORT } from "./config.js"
 import { requestLogger, errorLogger } from "./middlewares/logger.js"
 dotenv.config()
 const app = express()
