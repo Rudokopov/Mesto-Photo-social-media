@@ -2,7 +2,7 @@
 const allowedCors = [
   "http://mesto-rudokopov.nomoredomains.monster",
   "https://mesto-rudokopov.nomoredomains.monster",
-  "https://mesto-rouge.vercel.app/",
+  "https://mesto-rouge.vercel.app",
   "http://localhost:3000",
   "http://localhost:3002",
 ]

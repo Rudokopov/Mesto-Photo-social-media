@@ -1,6 +1,6 @@
 {
   "name": "mesto",
-  "homepage": "https://mesto-rudokopov.nomoredomains.monster/",
+  "homepage": "https://mesto-rouge.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
