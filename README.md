@@ -26,29 +26,29 @@
 **Фотографии приложения**
 
 **Страница авторизации**
-![Фото страницы авторизации](https://cloud.mail.ru/public/BjbE/9nEgJCfBz)
+![Фото страницы авторизации](https://thumb.cloud.mail.ru/weblink/thumb/xw1/BjbE/9nEgJCfBz)
 
 ---
 
 **Страница регистрации**
-![Фото страницы регистрации](https://cloud.mail.ru/public/qUzt/VHB7tYAnD)
+![Фото страницы регистрации](https://thumb.cloud.mail.ru/weblink/thumb/xw1/qUzt/VHB7tYAnD)
 
 ---
 
 **Главная страница**
-![Фото главной страницы](https://cloud.mail.ru/public/LRZn/k2vSFj79n)
+![Фото главной страницы](https://thumb.cloud.mail.ru/weblink/thumb/xw1/LRZn/k2vSFj79n)
 
 ---
 
 **Страница добавлением фотографии**
-![Фото главной страницы блога](https://cloud.mail.ru/public/Hv21/t2x2LZRK1)
+![Фото главной страницы блога](https://thumb.cloud.mail.ru/weblink/thumb/xw1/Hv21/t2x2LZRK1)
 
 ---
 
 **Страница изменения профиля**
-![Фото главной страницы блога](https://cloud.mail.ru/public/RcA9/ijSkPd3Mh)
+![Фото главной страницы блога](https://thumb.cloud.mail.ru/weblink/thumb/xw1/RcA9/ijSkPd3Mh)
 
 ---
 
 **Страница обновления аватара**
-![Фото главной страницы блога](https://cloud.mail.ru/public/6fqm/SzWc3phoA)
+![Фото главной страницы блога](https://thumb.cloud.mail.ru/weblink/thumb/xw1/6fqm/SzWc3phoA)
