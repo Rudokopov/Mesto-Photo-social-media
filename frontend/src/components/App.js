@@ -104,6 +104,8 @@ function App() {
 
   const authorization = useCallback(async (email, password) => {
     try {
+      setLoading(true);
+      // isLoading(true);
       await auth
         .authorize(email, password)
         .then((data) => {

@@ -1,3 +1,16 @@
+@keyframes download-animation {
+  from {
+    width: 358px;
+    border-radius: 0px;
+  }
+  50% {
+    transform: translateX(-1000px);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
 .authorization__submit-button {
   all: unset;
   text-align: center;
@@ -8,4 +21,11 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 21px;
+  transition: all 1s ease;
+}
+
+.authorization__submit-button-download {
+  animation-name: download-animation;
+  animation-iteration-count: infinite;
+  animation-duration: 2s;
 }

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { LoadingContext } from "../contexts/LoadingContext";
 
 function AuthForm(props) {
+  const isLoading = useContext(LoadingContext);
   const {
     title,
     buttonText,
@@ -34,17 +36,19 @@ function AuthForm(props) {
             minLength={2}
             onChange={handlePassword}
           />
-          {/* {isErrorMessage && (
-            <span className="error-message">
-              Пароль не должен содержать русские символы
-            </span>
-          )} */}
         </fieldset>
-        <button className="authorization__submit-button" type="submit">
-          {buttonText}
+        <button
+          className={
+            isLoading
+              ? "authorization__submit-button-download authorization__submit-button"
+              : "authorization__submit-button"
+          }
+          type="submit"
+        >
+          {isLoading ? "Загрузка..." : buttonText}
         </button>
         <p className="authorization__description">
-          {description} {""}
+          {description}
           <Link to={link} className="authorization__description-link">
             {linkTitle}
           </Link>
