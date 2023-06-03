@@ -76,8 +76,9 @@ function App() {
         navigate("/", { replace: true });
         api.updateAuthorization(token);
         requestUserData(); // вызов функции для обновления данных
+      } else {
+        setLoading(false);
       }
-      setLoading(false);
     } catch (err) {
       console.log(err);
     }
