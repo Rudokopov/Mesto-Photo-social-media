@@ -77,6 +77,7 @@ function App() {
         api.updateAuthorization(token);
         requestUserData(); // вызов функции для обновления данных
       }
+      setLoading(false);
     } catch (err) {
       console.log(err);
     }
