@@ -47,6 +47,7 @@ function App() {
 
   const udpateCardsData = useCallback(async () => {
     await api.getInitialCards().then((data) => setCards(data));
+    setLoading(false);
   }, []);
 
   const closeByOverlay = (e) => {
@@ -182,15 +183,18 @@ function App() {
       .catch((err) => console.log(err));
   };
 
-  const handleAddPlaceSubmit = useCallback(({ name, link }) => {
-    api
-      .addNewCard({ name, link })
-      .then((newCard) => {
+  const handleAddPlaceSubmit = useCallback(async ({ name, link }) => {
+    try {
+      setLoading(true);
+      const newCard = await api.addNewCard({ name, link });
+      if (newCard) {
         setCards([newCard, ...cards]);
         udpateCardsData();
         handleClosePopup();
-      })
-      .catch((err) => console.log(err));
+      }
+    } catch (err) {
+      alert(`Произошла ошибка ${err.message}`);
+    }
   }, []);
 
   const handleLogin = useCallback(() => {
