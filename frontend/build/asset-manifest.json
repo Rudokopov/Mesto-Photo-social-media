@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.aaccc6fb.css",
-    "main.js": "/static/js/main.0f713e57.js",
+    "main.css": "/static/css/main.170cfa9d.css",
+    "main.js": "/static/js/main.099f5b82.js",
     "static/media/Inter-Medium.woff?v=3.19": "/static/media/Inter-Medium.9053572c46aeb4b16caa.woff",
     "static/media/Inter-Black.woff?v=3.19": "/static/media/Inter-Black.c6938660eec019fefd68.woff",
     "static/media/Inter-Regular.woff?v=3.19": "/static/media/Inter-Regular.8c206db99195777c6769.woff",
@@ -21,11 +21,11 @@
     "static/media/Eddit.svg": "/static/media/Eddit.a086f758840ae814ecde.svg",
     "static/media/Close_Icon.svg": "/static/media/Close_Icon.2ceb783afbab75916ddc.svg",
     "static/media/Close_Icon_mob.svg": "/static/media/Close_Icon_mob.b793e07c3f4c19e26c11.svg",
-    "main.aaccc6fb.css.map": "/static/css/main.aaccc6fb.css.map",
-    "main.0f713e57.js.map": "/static/js/main.0f713e57.js.map"
+    "main.170cfa9d.css.map": "/static/css/main.170cfa9d.css.map",
+    "main.099f5b82.js.map": "/static/js/main.099f5b82.js.map"
   },
   "entrypoints": [
-    "static/css/main.aaccc6fb.css",
-    "static/js/main.0f713e57.js"
+    "static/css/main.170cfa9d.css",
+    "static/js/main.099f5b82.js"
   ]
 }
