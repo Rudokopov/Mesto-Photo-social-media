@@ -1,6 +1,6 @@
 {
   "name": "mesto",
-  "homepage": "https://mesto-social.vercel.app",
+  "homepage": "https://mesto-social.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
