@@ -120,8 +120,8 @@ const updateProfile = async (req, res, next, data) => {
   try {
     const id = req.userId
     const { name, about, avatar } = req.body
-    const result = await User.updateOne(
-      { _id: id },
+    const result = await User.findByIdAndUpdate(
+      id,
       { name, about, avatar },
       { new: true, runValidators: true }
     )

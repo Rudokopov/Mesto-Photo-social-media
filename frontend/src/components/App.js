@@ -152,6 +152,7 @@ function App() {
     api
       .changeProfileInfo({ name, description })
       .then((state) => {
+        console.log(state);
         setCurrentUser(state);
         handleClosePopup();
       })

@@ -1,6 +1,7 @@
 // auth.js
 
-export const BASE_URL = "https://mesto-yandex.onrender.com";
+// export const BASE_URL = "https://mesto-yandex.onrender.com";
+export const BASE_URL = "http://localhost:3000";
 
 export const checkStatus = (res) => {
   if (res.ok) {

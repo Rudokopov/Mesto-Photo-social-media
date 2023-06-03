@@ -13,7 +13,9 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
-mongoose.connect(DATA_BASE)
+mongoose.connect(
+  "mongodb+srv://admin:bZmYHxSu89e3AmOG@cluster0.9knm9lc.mongodb.net/"
+)
 
 app.use(requestLogger)
 
