@@ -153,35 +153,46 @@ function App() {
     }
   };
 
-  const handleUpdateUser = ({ name, description }) => {
-    api
-      .changeProfileInfo({ name, description })
-      .then((state) => {
-        console.log(state);
-        setCurrentUser(state);
+  const handleUpdateUser = useCallback(async ({ name, description }) => {
+    try {
+      setLoading(true);
+      const updatedUser = await api.changeProfileInfo({ name, description });
+      if (updatedUser) {
+        setCurrentUser(updatedUser);
         handleClosePopup();
-      })
-      .catch((err) => console.log(err));
-  };
+        setLoading(false);
+      }
+    } catch (err) {
+      alert(`При обновлении пользователя произошла ошибка ${err.message}`);
+    }
+  }, []);
 
-  const handleCardDelete = (id) => {
-    api
-      .deleteCard(id)
-      .then(() => {
+  const handleCardDelete = useCallback(async (id) => {
+    try {
+      setLoading(true);
+      const deletedCard = await api.deleteCard(id);
+      if (deletedCard) {
         setCards((prevCards) => prevCards.filter((card) => card._id !== id));
-      })
-      .catch((err) => console.log(err));
-  };
+        setLoading(false);
+      }
+    } catch (err) {
+      alert(`При удалении карточки произошла ошибка ${err.message}`);
+    }
+  }, []);
 
-  const handleAvatarChange = ({ imageAvatar }) => {
-    api
-      .setNewAvatar({ imageAvatar })
-      .then((result) => {
-        setCurrentUser(result);
+  const handleAvatarChange = useCallback(async ({ imageAvatar }) => {
+    try {
+      setLoading(true);
+      const newAwatar = await api.setNewAvatar({ imageAvatar });
+      if (newAwatar) {
+        setCurrentUser(newAwatar);
         handleClosePopup();
-      })
-      .catch((err) => console.log(err));
-  };
+        setLoading(false);
+      }
+    } catch (err) {
+      alert(`При обновлении аватара произошла ошибка ${err.message}`);
+    }
+  }, []);
 
   const handleAddPlaceSubmit = useCallback(async ({ name, link }) => {
     try {
