@@ -1,12 +1,20 @@
 import React, { useContext, useEffect } from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import { CardData, DataUser } from "./App";
 
-function Card(props) {
+type CardProps = {
+  card: CardData;
+  onCardClick: (card: CardData) => void;
+  onCardLike: (card: CardData) => void;
+  onCardDelete: (id: string) => void;
+};
+
+const Card: React.FC<CardProps> = (props) => {
   const { card, onCardClick, onCardLike, onCardDelete } = props;
-  const currentUser = useContext(CurrentUserContext);
+  const currentUser = useContext<DataUser | undefined>(CurrentUserContext);
 
-  const isOwn = card.owner._id === currentUser._id || "";
-  const isLiked = card.likes.some((i) => i._id === currentUser._id);
+  const isOwn = card.owner._id === currentUser?._id || "";
+  const isLiked = card.likes.some((i) => i._id === currentUser?._id);
 
   const handleDeleteClick = () => {
     const id = card._id;
@@ -41,6 +49,6 @@ function Card(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Card;

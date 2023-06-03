@@ -1,4 +1,6 @@
-function Loaded() {
+import React from "react";
+
+const Loaded: React.FC = () => {
   return (
     <div className="loaded-wrapper">
       <div className="loaded-container">
@@ -10,6 +12,6 @@ function Loaded() {
       </div>
     </div>
   );
-}
+};
 
 export default Loaded;

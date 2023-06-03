@@ -16,6 +16,7 @@
 **Какие технологии используются:**
 
 - React
+- Redux Toolkit
 - TypeScript
 - NodeJS
 - Express

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Footer() {
+const Footer: React.FC = () => {
   return (
     <footer className="footer">
       <p className="footer__copyright">
@@ -8,6 +8,6 @@ function Footer() {
       </p>
     </footer>
   );
-}
+};
 
 export default Footer;

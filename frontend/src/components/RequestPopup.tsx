@@ -1,4 +1,14 @@
-function RequestPopup(props) {
+import React from "react";
+
+type RequestPopupProps = {
+  isOpen: boolean;
+  title: string;
+  onClose: () => void;
+  image: string;
+  closeByOverlay: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+};
+
+const RequestPopup: React.FC<RequestPopupProps> = (props) => {
   const { isOpen, title, onClose, image, closeByOverlay } = props;
   return (
     <div
@@ -17,6 +27,6 @@ function RequestPopup(props) {
       </div>
     </div>
   );
-}
+};
 
 export default RequestPopup;

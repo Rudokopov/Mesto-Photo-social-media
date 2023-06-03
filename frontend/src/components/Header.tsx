@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import { AppContext } from "../contexts/AppContext";
 import { EmailContext } from "../contexts/EmailContext";
 
-function Header(props) {
+type HeaderProps = {
+  link?: string;
+  linkName?: string;
+  signOut?: () => void;
+};
+
+const Header: React.FC<HeaderProps> = (props) => {
   const loggedIn = useContext(AppContext);
   const email = useContext(EmailContext);
   const { link, linkName, signOut } = props;
@@ -21,12 +27,14 @@ function Header(props) {
           </button>
         </div>
       ) : (
-        <Link className="header__link" to={link}>
-          {linkName}
-        </Link>
+        link && (
+          <Link className="header__link" to={link}>
+            {linkName}
+          </Link>
+        )
       )}
     </header>
   );
-}
+};
 
 export default Header;

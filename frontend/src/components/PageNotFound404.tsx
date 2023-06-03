@@ -1,6 +1,7 @@
+import React from "react";
 import { Link } from "react-router-dom";
 
-function PageNotFound404() {
+const PageNotFound404: React.FC = () => {
   return (
     <>
       <div className="not-found-page__container">
@@ -19,6 +20,6 @@ function PageNotFound404() {
       </div>
     </>
   );
-}
+};
 
 export default PageNotFound404;

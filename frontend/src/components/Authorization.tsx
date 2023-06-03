@@ -3,33 +3,36 @@ import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import AuthForm from "./AuthForm";
 
-function Authorization(props) {
-  const navigate = useNavigate();
+type AuthorizationProps = {
+  authorization: (name: string, email: string) => void;
+};
+
+const Authorization: React.FC<AuthorizationProps> = (props) => {
   const { authorization } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const filter = (e) => {
+  const filter = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.value = e.target.value.replace(/[а-я]/gi, "");
   };
 
-  const handleEmail = (e) => {
+  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEmail(e.target.value);
     filter(e);
   };
 
-  const handlePassword = (e) => {
+  const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(e.target.value);
     filter(e);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!email || !password) {
       return;
     }
-    authorization(email, password, { navigate });
+    authorization(email, password);
   };
 
   return (
@@ -44,6 +47,6 @@ function Authorization(props) {
       />
     </>
   );
-}
+};
 
 export default Authorization;

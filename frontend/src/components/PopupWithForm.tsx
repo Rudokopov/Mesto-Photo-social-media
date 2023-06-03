@@ -1,13 +1,27 @@
-function PopupWithForm({
-  title,
-  name,
-  btnName,
-  isOpen,
-  children,
-  onClose,
-  onSubmit,
-  closeByOverlay,
-}) {
+import React from "react";
+
+type PopupWithFormProps = {
+  title: string;
+  name: string;
+  btnName: string;
+  isOpen: boolean;
+  children?: React.ReactNode;
+  onClose: () => void;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  closeByOverlay?: (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+};
+
+const PopupWithForm: React.FC<PopupWithFormProps> = (props) => {
+  const {
+    title,
+    name,
+    btnName,
+    isOpen,
+    children,
+    onClose,
+    onSubmit,
+    closeByOverlay,
+  } = props;
   return (
     <div
       className={isOpen ? `popup popup_opened` : `popup`}
@@ -37,6 +51,6 @@ function PopupWithForm({
       </div>
     </div>
   );
-}
+};
 
 export default PopupWithForm;

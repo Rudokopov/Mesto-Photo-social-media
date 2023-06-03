@@ -2,18 +2,18 @@
 
 export const BASE_URL = "https://mesto-yandex.onrender.com";
 
-export const checkStatus = (res) => {
+export const checkStatus = (res: Response) => {
   if (res.ok) {
     return res.json();
   }
   return Promise.reject(`Что-то пошло не так: ${res.status}`);
 };
 
-export const request = (url, options) => {
+export const request = (url: string, options: RequestInit) => {
   return fetch(url, options).then(checkStatus);
 };
 
-export const register = (email, password) => {
+export const register = (email: string, password: string) => {
   return request(`${BASE_URL}/signup`, {
     method: "POST",
     headers: {
@@ -24,7 +24,7 @@ export const register = (email, password) => {
   });
 };
 
-export const authorize = (email, password) => {
+export const authorize = (email: string, password: string) => {
   return request(`${BASE_URL}/signin`, {
     method: "POST",
     headers: {
@@ -35,7 +35,7 @@ export const authorize = (email, password) => {
   });
 };
 
-export const getContent = (token) => {
+export const getContent = (token: string) => {
   return request(`${BASE_URL}/users/me`, {
     method: "GET",
     headers: {

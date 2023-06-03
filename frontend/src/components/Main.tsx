@@ -5,20 +5,34 @@ import Header from "./Header";
 import { CurrentUserCardsContext } from "../contexts/CurrentUserCardsContext";
 import { LoadingContext } from "../contexts/LoadingContext";
 import Loaded from "./Loaded";
+import { CardData, DataUser } from "./App";
 
-function Main({
-  onEditProfile,
-  onAvatarPopup,
-  onPlacePopup,
-  onCardClick,
-  onCardLike,
-  onCardDelete,
-  currentUser,
-  signOut,
-}) {
-  const cards = useContext(CurrentUserCardsContext);
+export type MainProps = {
+  onEditProfile: () => void;
+  onAvatarPopup: () => void;
+  onPlacePopup: () => void;
+  onCardClick: (card: CardData) => void;
+  onCardLike: (card: CardData) => void;
+  onCardDelete: (id: string) => void;
+  currentUser: DataUser;
+  signOut: () => void;
+};
+
+const Main: React.FC<MainProps> = (props) => {
+  const {
+    onEditProfile,
+    onAvatarPopup,
+    onPlacePopup,
+    onCardClick,
+    onCardLike,
+    onCardDelete,
+    currentUser,
+    signOut,
+  } = props;
+  const cards: CardData[] | undefined = useContext(CurrentUserCardsContext);
   const isLoading = useContext(LoadingContext);
-  const reverseCards = [...cards].reverse();
+
+  const reverseCards = cards && [...cards].reverse();
   return (
     <>
       {isLoading && <Loaded />}
@@ -55,7 +69,7 @@ function Main({
           ></button>
         </section>
         <section className="cards">
-          {reverseCards.map((card) => (
+          {reverseCards?.map((card) => (
             <Card
               key={card._id}
               card={card}
@@ -68,6 +82,6 @@ function Main({
       </main>
     </>
   );
-}
+};
 
 export default Main;

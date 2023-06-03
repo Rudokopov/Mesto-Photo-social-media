@@ -1,7 +1,13 @@
 import React, { useState, useEffect } from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function AddPlacePopup(props) {
+type AddPlacePopupProps = {
+  isOpen: boolean;
+  onClose: () => void;
+  onAddCard: (name: string, image: string) => void;
+};
+
+const AddPlacePopup: React.FC<AddPlacePopupProps> = (props) => {
   const { isOpen, onClose, onAddCard } = props;
 
   const [name, setName] = useState("");
@@ -12,21 +18,18 @@ function AddPlacePopup(props) {
     setLink("");
   }, [isOpen]);
 
-  const handleName = (e) => {
+  const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
 
-  const handleLink = (e) => {
+  const handleLink = (e: React.ChangeEvent<HTMLInputElement>) => {
     setLink(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    onAddCard({
-      name,
-      link,
-    });
+    onAddCard(name, link);
     onClose();
   };
 
@@ -48,8 +51,8 @@ function AddPlacePopup(props) {
         type="text"
         className="popup__form-input popup__form-place-name"
         id="name"
-        minLength="2"
-        maxLength="30"
+        minLength={2}
+        maxLength={30}
       />
       <span className="name-error error-message"></span>
       <input
@@ -65,6 +68,6 @@ function AddPlacePopup(props) {
       <span className="image-error error-message"></span>
     </PopupWithForm>
   );
-}
+};
 
 export default AddPlacePopup;

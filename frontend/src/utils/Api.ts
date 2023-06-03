@@ -1,22 +1,33 @@
+import { CardData } from "../components/App";
+
+interface ApiOptions {
+  jwt?: string | null;
+  url?: string;
+  headers?: Record<string, string>;
+}
+
 class Api {
-  constructor(options) {
+  private _jwt: string;
+  private _url: string;
+  private _headers: Record<string, string>;
+  constructor(options: ApiOptions) {
     this._jwt = options.jwt || "";
     this._url = options.url || "";
     this._headers = options.headers || {};
   }
 
-  _checkStatus(res) {
+  private _checkStatus<T>(res: Response) {
     if (res.ok) {
       return res.json();
     }
     return Promise.reject(`Что-то пошло не так: ${res.status}`);
   }
 
-  _request(url, options) {
-    return fetch(url, options).then(this._checkStatus);
+  private _request<T>(url: string, options: RequestInit) {
+    return fetch(url, options).then((res) => this._checkStatus<T>(res));
   }
 
-  updateAuthorization(jwt) {
+  updateAuthorization(jwt: string) {
     this._jwt = jwt;
     this._headers.authorization = jwt;
   }
@@ -33,13 +44,13 @@ class Api {
     });
   }
 
-  addNewCard({ name, link }) {
+  addNewCard(name: string, image: string) {
     return this._request(`${this._url}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
         name,
-        link,
+        link: image,
       }),
     });
   }
@@ -50,7 +61,7 @@ class Api {
     });
   }
 
-  changeProfileInfo({ name, description }) {
+  changeProfileInfo(name: string, description: string) {
     return this._request(`${this._url}/users/me`, {
       method: "PATCH",
       headers: this._headers,
@@ -61,28 +72,28 @@ class Api {
     });
   }
 
-  deleteCard(id) {
+  deleteCard(id: string) {
     return this._request(`${this._url}/cards/${id}`, {
       method: "DELETE",
       headers: this._headers,
     });
   }
 
-  likeCard(card) {
+  likeCard(card: CardData) {
     return this._request(`${this._url}/cards/${card._id}/likes`, {
       method: "PUT",
       headers: this._headers,
     });
   }
 
-  deleteLike(card) {
+  deleteLike(card: CardData) {
     return this._request(`${this._url}/cards/${card._id}/likes`, {
       method: "DELETE",
       headers: this._headers,
     });
   }
 
-  setNewAvatar({ imageAvatar }) {
+  setNewAvatar(imageAvatar: string) {
     return this._request(`${this._url}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
@@ -93,13 +104,15 @@ class Api {
   }
 }
 
-const api = new Api({
+const apiOptions: ApiOptions = {
   jwt: localStorage.getItem("jwt"),
   url: "https://mesto-yandex.onrender.com",
   headers: {
-    authorization: localStorage.getItem("jwt"),
+    authorization: localStorage.getItem("jwt") || "",
     "Content-Type": "application/json",
   },
-});
+};
+
+const api = new Api(apiOptions);
 
 export { api };

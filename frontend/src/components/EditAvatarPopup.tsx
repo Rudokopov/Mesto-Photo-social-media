@@ -1,18 +1,27 @@
 import React, { useRef } from "react";
 import PopupWithForm from "./PopupWithForm";
 
-function EditAvattarPopup(props) {
+type EditAvatarPopupProps = {
+  onEditAvatar: (avatarLink: string) => void;
+  isOpen: boolean;
+  onClose: () => void;
+};
+
+const EditAvattarPopup: React.FC<EditAvatarPopupProps> = (props) => {
   const { onEditAvatar } = props;
 
-  const avatarInputRef = useRef();
+  const avatarInputRef = useRef<HTMLInputElement>(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    onEditAvatar({
-      imageAvatar: avatarInputRef.current.value,
-    });
-    e.target.reset();
+    const avatarLink = avatarInputRef?.current?.value;
+
+    if (avatarLink) {
+      onEditAvatar(avatarLink);
+    }
+
+    e.currentTarget.reset();
   };
 
   const { isOpen, onClose } = props;
@@ -36,6 +45,6 @@ function EditAvattarPopup(props) {
       <span className="imageAvatar-error error-message"></span>
     </PopupWithForm>
   );
-}
+};
 
 export default EditAvattarPopup;

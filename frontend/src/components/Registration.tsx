@@ -3,29 +3,34 @@ import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import AuthForm from "./AuthForm";
 
-function Registration(props) {
+type RegistrationProps = {
+  registration: (email: string, password: string) => void;
+  loggedIn: boolean;
+};
+
+const Registration: React.FC<RegistrationProps> = (props) => {
   const navigate = useNavigate();
   const { registration, loggedIn } = props;
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const filter = (e) => {
+  const filter = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.target.value = e.target.value.replace(/[а-я]/gi, "");
   };
 
-  const handleEmail = (e) => {
+  const handleEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     filter(e);
     setUsername(e.target.value);
     setEmail(e.target.value);
   };
 
-  const handlePassword = (e) => {
+  const handlePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
     filter(e);
     setPassword(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (email) {
       registration(email, password);
@@ -53,6 +58,6 @@ function Registration(props) {
       )}
     </>
   );
-}
+};
 
 export default Registration;
