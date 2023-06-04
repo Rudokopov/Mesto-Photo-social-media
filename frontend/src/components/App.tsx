@@ -151,6 +151,7 @@ const App: React.FC = () => {
       });
     } catch (err) {
       alert("Произошла ошибка при авторизации");
+      setLoading(false);
     }
   }, []);
 
@@ -196,6 +197,7 @@ const App: React.FC = () => {
         }
       } catch (err) {
         alert(`При обновлении пользователя произошла ошибка`);
+        setLoading(false);
       }
     },
     []
@@ -211,6 +213,7 @@ const App: React.FC = () => {
       }
     } catch (err) {
       alert(`При удалении карточки произошла ошибка`);
+      setLoading(false);
     }
   }, []);
 
@@ -225,6 +228,7 @@ const App: React.FC = () => {
       }
     } catch (err) {
       alert(`При обновлении аватара произошла ошибка`);
+      setLoading(false);
     }
   }, []);
 
@@ -242,6 +246,7 @@ const App: React.FC = () => {
         }
       } catch (err) {
         alert(`Произошла ошибка`);
+        setLoading(false);
       }
     },
     []
