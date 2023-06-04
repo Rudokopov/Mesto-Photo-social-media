@@ -1,6 +1,6 @@
 // Массив доменов, с которых разрешены кросс-доменные запросы
 const allowedCors = [
-  "https://mesto-social.vercel.app/",
+  "https://rudokopov.github.io/Mesto-Photo-social-media",
   "http://localhost:3000",
   "http://localhost:3001",
   "http://localhost:3002",
