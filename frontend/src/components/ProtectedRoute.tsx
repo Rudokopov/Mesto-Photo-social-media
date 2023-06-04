@@ -12,7 +12,7 @@ type ProtectedRouteElementProps = {
   onCardLike: (card: CardData) => void;
   onCardDelete: (id: string) => void;
   cards: CardData[];
-  currentUser: DataUser;
+  currentUser: DataUser | undefined;
   email: string;
   signOut: () => void;
   element: React.ComponentType<MainProps>;

@@ -14,7 +14,7 @@ export type MainProps = {
   onCardClick: (card: CardData) => void;
   onCardLike: (card: CardData) => void;
   onCardDelete: (id: string) => void;
-  currentUser: DataUser;
+  currentUser: DataUser | undefined;
   signOut: () => void;
 };
 
@@ -41,7 +41,7 @@ const Main: React.FC<MainProps> = (props) => {
         <section className="profile">
           <div className="profile__avatar-wrap">
             <img
-              src={currentUser.avatar}
+              src={currentUser?.avatar}
               alt="Аватар пользователя"
               className="profile__avatar"
             />
@@ -58,8 +58,8 @@ const Main: React.FC<MainProps> = (props) => {
               className="profile__edit-button"
               onClick={onEditProfile}
             ></button>
-            <h1 className="profile__user-name">{currentUser.name}</h1>
-            <p className="profile__user-description">{currentUser.about}</p>
+            <h1 className="profile__user-name">{currentUser?.name}</h1>
+            <p className="profile__user-description">{currentUser?.about}</p>
           </div>
           <button
             type="button"
